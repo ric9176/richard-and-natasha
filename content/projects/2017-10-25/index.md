@@ -1,9 +1,9 @@
 ---
-client: "BlobSphere"
-title: "BlobSphere - Make Spheres blob!"
-cover: "./blobSphere.jpg"
+client: "Honey Moon"
+title: "Honey Moon - Sal, Cape Verde"
+cover: "./kites.jpg"
 date: "2017-10-25"
-service: "App Design"
+service: "Help with the 'honey fund'"
 ---
 # Description
 

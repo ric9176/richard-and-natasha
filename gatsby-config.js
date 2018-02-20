@@ -87,14 +87,14 @@ module.exports = {
         display: 'minimal-ui',
         icons: [
           {
-            src: '/logos/logo-192x192.png',
+            src: '/logos/cocktails.jpg',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/jpg',
           },
           {
-            src: '/logos/logo-512x512.png',
+            src: '/logos/cocktails.jpg',
             sizes: '512x512',
-            type: 'image/png',
+            type: 'image/jpg',
           },
         ],
       },

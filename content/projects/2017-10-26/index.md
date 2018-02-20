@@ -1,9 +1,9 @@
 ---
-client: "CubeRound"
-title: "CubeRound - Make Cubes round!"
-cover: "./cubeRound.jpg"
+client: "Venue"
+title: "Venue"
+cover: "./palacio.jpg"
 date: "2017-10-26"
-service: "Website"
+service: "Palacio da Pena, Sintra"
 ---
 # Description
 

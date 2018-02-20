@@ -1,9 +1,9 @@
 ---
-client: "SmartTriangle"
-title: "SmartTriangle - Make Triangles smart!"
-cover: "./smartTriangle.jpg"
+client: "Accommodation"
+title: "Accommodation"
+cover: "./pestana-pool.jpg"
 date: "2017-10-27"
-service: "Art Direction"
+service: "Pestana Sintra Golf"
 ---
 # Description
 
