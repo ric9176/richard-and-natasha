@@ -3,7 +3,7 @@ client: "Honeymoon"
 title: "Honeymoon - Sal, Cape Verde"
 cover: "./kites.jpg"
 date: "2018-02-25"
-service: "Donate to the 'honey fund' we created in lieu of a wedding registry."
+subtitle: "Donate to the 'honey fund' we created in lieu of a wedding registry."
 ---
 # Our Honeymoon
 

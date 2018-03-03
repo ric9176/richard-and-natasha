@@ -3,7 +3,7 @@ client: "Richard and Natasha"
 title: "Richard and Natasha"
 cover: "./richtash.jpg"
 date: "2018-06-08"
-service: "Our path to 20th of October 2018"
+subtitle: "Our path to 20th of October 2018"
 ---
 # Description
 

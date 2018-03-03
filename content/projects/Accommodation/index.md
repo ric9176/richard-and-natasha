@@ -3,7 +3,7 @@ client: "Accommodations"
 title: "Accommodations"
 cover: "./pestana-pool.jpg"
 date: "2018-03-27"
-service: "We recommend you stay at the Pestana Sintra Golf Resort, but there are plenty of other options in Sintra."
+subtitle: "We recommend you stay at the Pestana Sintra Golf Resort, but there are plenty of other options in Sintra."
 ---
 # Pestana Sintra Golf Resort
 

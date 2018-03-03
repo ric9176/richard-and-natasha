@@ -41,7 +41,7 @@ const Project = (props) => {
                   </Fade>
                 </div>
                 <div className={styles.information}>
-                  <div className={styles.infoBlock}>
+                  {/* <div className={styles.infoBlock}>
                     <Fade up duration={1250} className={styles.top}>
                       {config.client}
                     </Fade>
@@ -53,8 +53,8 @@ const Project = (props) => {
                     >
                       {project.client}
                     </Fade>
-                  </div>
-                  <div className={styles.infoBlock}>
+                  </div> */}
+                  {/* <div className={styles.infoBlock}>
                     <Fade up duration={1250} className={styles.top}>
                       {config.date}
                     </Fade>
@@ -66,18 +66,18 @@ const Project = (props) => {
                     >
                       {date}
                     </Fade>
-                  </div>
+                  </div> */}
                   <div className={styles.infoBlock}>
-                    <Fade up duration={1250} className={styles.top}>
-                      {config.service}
-                    </Fade>
+                    {/* <Fade up duration={1250} className={styles.top}>
+                      {config.subtitle}
+                    </Fade> */}
                     <Fade
                       up
                       duration={1250}
                       delay={500}
                       className={styles.bottom}
                     >
-                      {project.service}
+                      {project.subtitle}
                     </Fade>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ query ProjectPostBySlug($slug: String!) {
       title
       date
       client
-      service
+      subtitle
     }
   }
 }

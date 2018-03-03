@@ -3,7 +3,7 @@ client: "RSVP"
 title: "RSVP"
 cover: "./food.jpg"
 date: "2018-07-01"
-service: "Let us know whether you can make it and choose your dinner!"
+subtitle: "Let us know whether you can make it and choose your dinner!"
 ---
 # Description
 

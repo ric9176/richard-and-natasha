@@ -12,7 +12,7 @@ export default class ProjectListing extends React.PureComponent {
         path: projectEdge.node.fields.slug,
         cover: projectEdge.node.frontmatter.cover.childImageSharp.sizes,
         client: projectEdge.node.frontmatter.client,
-        service: projectEdge.node.frontmatter.service,
+        subtitle: projectEdge.node.frontmatter.subtitle,
         imageURL: projectEdge.node.frontmatter.cover.childImageSharp.sizes.src,
       });
     });
@@ -44,8 +44,8 @@ export default class ProjectListing extends React.PureComponent {
                 <h2 className={styles.client} key={project.client}>
                   {project.client}
                 </h2>
-                <div className={styles.service} key={project.service}>
-                  {project.service}
+                <div className={styles.subtitle} key={project.subtitle}>
+                  {project.subtitle}
                 </div>
               </Link>
             </div>

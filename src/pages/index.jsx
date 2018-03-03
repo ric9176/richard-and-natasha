@@ -32,7 +32,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            service
+            subtitle
             client
             cover {
               childImageSharp {

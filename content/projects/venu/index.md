@@ -2,7 +2,7 @@
 title: "The Big Day"
 date: "2017-05-08"
 client: "The Big Day"
-service: "Our path to 20th of October 2018"
+subtitle: "Our path to 20th of October 2018"
 cover: "./palacio.jpg"
 ---
 # The Venue
