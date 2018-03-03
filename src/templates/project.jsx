@@ -10,110 +10,108 @@ import Container from '../components/Container/Container';
 import styles from './project.module.scss';
 
 const Project = (props) => {
+  console.log('props', props)
+  console.log(props.pathContext)
   const { slug } = props.pathContext;
-  const postNode = props.data.markdownRemark;
-  const project = postNode.frontmatter;
-  const date = format(project.date, config.dateFormat);
-  const imageURL = project.cover.childImageSharp.resize.src;
-  if (!project.id) {
-    project.id = slug;
-  }
-  return (
-    <div className="container project-container">
-      <Helmet title={`${project.title} | ${config.siteTitle}`} />
-      <SEO postPath={slug} postNode={postNode} postSEO />
-      <div className={styles.headerWrapper}>
-        <Palette image={imageURL}>
-          {palette => (
-            <section
-              className={styles.header}
-              style={{ backgroundColor: palette.vibrant }}
-            >
-              <div className={styles.title}>
-                <Fade down duration={1250} tag="h1">
-                  {project.title}
-                </Fade>
-              </div>
-              <div className={styles.information}>
-                <div className={styles.infoBlock}>
-                  <Fade up duration={1250} className={styles.top}>
-                    {config.client}
-                  </Fade>
-                  <Fade
-                    up
-                    duration={1250}
-                    delay={500}
-                    className={styles.bottom}
-                  >
-                    {project.client}
+  let content
+  if (!props.data) {
+    content = <p>...loading</p>
+  } else {
+    const postNode = props.data.markdownRemark;
+    const project = postNode.frontmatter;
+    const date = format(project.date, config.dateFormat);
+    // const imageURL = project.cover.childImageSharp.resize.src;
+    if (!project.id) {
+      project.id = slug;
+    }
+    content = (
+      <div className="container project-container">
+        <Helmet title={`${project.title} | ${config.siteTitle}`} />
+        <SEO postPath={slug} postNode={postNode} postSEO />
+        <div className={styles.headerWrapper}>
+          <Palette>
+            {palette => (
+              <section
+                className={styles.header}
+                style={{ backgroundColor: palette.vibrant }}
+              >
+                <div className={styles.title}>
+                  <Fade down duration={1250} tag="h1">
+                    {project.title}
                   </Fade>
                 </div>
-                <div className={styles.infoBlock}>
-                  <Fade up duration={1250} className={styles.top}>
-                    {config.date}
-                  </Fade>
-                  <Fade
-                    up
-                    duration={1250}
-                    delay={500}
-                    className={styles.bottom}
-                  >
-                    {date}
-                  </Fade>
+                <div className={styles.information}>
+                  <div className={styles.infoBlock}>
+                    <Fade up duration={1250} className={styles.top}>
+                      {config.client}
+                    </Fade>
+                    <Fade
+                      up
+                      duration={1250}
+                      delay={500}
+                      className={styles.bottom}
+                    >
+                      {project.client}
+                    </Fade>
+                  </div>
+                  <div className={styles.infoBlock}>
+                    <Fade up duration={1250} className={styles.top}>
+                      {config.date}
+                    </Fade>
+                    <Fade
+                      up
+                      duration={1250}
+                      delay={500}
+                      className={styles.bottom}
+                    >
+                      {date}
+                    </Fade>
+                  </div>
+                  <div className={styles.infoBlock}>
+                    <Fade up duration={1250} className={styles.top}>
+                      {config.service}
+                    </Fade>
+                    <Fade
+                      up
+                      duration={1250}
+                      delay={500}
+                      className={styles.bottom}
+                    >
+                      {project.service}
+                    </Fade>
+                  </div>
                 </div>
-                <div className={styles.infoBlock}>
-                  <Fade up duration={1250} className={styles.top}>
-                    {config.service}
-                  </Fade>
-                  <Fade
-                    up
-                    duration={1250}
-                    delay={500}
-                    className={styles.bottom}
-                  >
-                    {project.service}
-                  </Fade>
-                </div>
-              </div>
-            </section>
-						)}
-        </Palette>
+              </section>
+  						)}
+          </Palette>
+        </div>
+        <Container>
+          <div
+            className={styles.content}
+            dangerouslySetInnerHTML={{ __html: postNode.html }}
+          />
+        </Container>
+        <Footer />
       </div>
-      <Container>
-        <div
-          className={styles.content}
-          dangerouslySetInnerHTML={{ __html: postNode.html }}
-        />
-      </Container>
-      <Footer />
-    </div>
-  );
+    )
+  }
+
+  return content
 };
 
 export default Project;
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query ProjectPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date
-        client
-        service
-        cover {
-          childImageSharp {
-            resize(width: 800) {
-              src
-            }
-          }
-        }
-      }
-      fields {
-        slug
-      }
-      excerpt
+query ProjectPostBySlug($slug: String!) {
+  markdownRemark(fields: { slug: { eq: $slug } }) {
+    html
+    frontmatter {
+      title
+      date
+      client
+      service
     }
   }
-`;
+}
+`

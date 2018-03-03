@@ -5,6 +5,7 @@ import ProjectListing from '../components/ProjectListing/ProjectListing';
 import Footer from '../components/Footer/Footer';
 
 const Index = (props) => {
+  console.log(props)
   const projectEdges = props.data.allMarkdownRemark.edges;
   return (
     <div className="container index-container">
@@ -24,7 +25,7 @@ export default Index;
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark {
       edges {
         node {
           fields {

@@ -13,7 +13,6 @@ const SEO = (props) => {
     const postMeta = postNode.frontmatter;
     title = postMeta.title;
     description = postNode.excerpt;
-    image = postMeta.cover.childImageSharp.resize.src;
     postURL = config.siteUrl + realPrefix + postPath;
   } else {
     title = config.siteTitle;
