@@ -12,7 +12,6 @@ import RSVP from '../components/RSVP'
 
 const Project = (props) => {
   const { slug } = props.pathContext;
-  console.log('propsasdasd', props)
   let content
   if (!props.data) {
     content = <p>...loading</p>
