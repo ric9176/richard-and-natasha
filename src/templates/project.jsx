@@ -108,8 +108,6 @@ query ProjectPostBySlug($slug: String!) {
     html
     frontmatter {
       title
-      date
-      client
       subtitle
     }
   }
