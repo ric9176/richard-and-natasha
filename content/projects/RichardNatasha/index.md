@@ -4,6 +4,7 @@ title: "Richard and Natasha"
 cover: "./richtash.jpg"
 date: "2018-06-08"
 subtitle: "Our path to 20th of October 2018"
+position: 1
 ---
 # Description
 

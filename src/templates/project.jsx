@@ -8,11 +8,11 @@ import SEO from '../components/SEO/SEO';
 import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
 import styles from './project.module.scss';
+import RSVP from '../components/RSVP'
 
 const Project = (props) => {
-  console.log('props', props)
-  console.log(props.pathContext)
   const { slug } = props.pathContext;
+  console.log('propsasdasd', props)
   let content
   if (!props.data) {
     content = <p>...loading</p>
@@ -41,36 +41,7 @@ const Project = (props) => {
                   </Fade>
                 </div>
                 <div className={styles.information}>
-                  {/* <div className={styles.infoBlock}>
-                    <Fade up duration={1250} className={styles.top}>
-                      {config.client}
-                    </Fade>
-                    <Fade
-                      up
-                      duration={1250}
-                      delay={500}
-                      className={styles.bottom}
-                    >
-                      {project.client}
-                    </Fade>
-                  </div> */}
-                  {/* <div className={styles.infoBlock}>
-                    <Fade up duration={1250} className={styles.top}>
-                      {config.date}
-                    </Fade>
-                    <Fade
-                      up
-                      duration={1250}
-                      delay={500}
-                      className={styles.bottom}
-                    >
-                      {date}
-                    </Fade>
-                  </div> */}
                   <div className={styles.infoBlock}>
-                    {/* <Fade up duration={1250} className={styles.top}>
-                      {config.subtitle}
-                    </Fade> */}
                     <Fade
                       up
                       duration={1250}
@@ -86,6 +57,9 @@ const Project = (props) => {
           </Palette>
         </div>
         <Container>
+        {project.title === 'RSVP' &&
+          <RSVP />
+        }
           <div
             className={styles.content}
             dangerouslySetInnerHTML={{ __html: postNode.html }}

@@ -4,6 +4,7 @@ title: "Honeymoon - Sal, Cape Verde"
 cover: "./kites.jpg"
 date: "2018-02-25"
 subtitle: "Donate to the 'honey fund' we created in lieu of a wedding registry."
+position: 6
 ---
 # Our Honeymoon
 

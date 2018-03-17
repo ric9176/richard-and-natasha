@@ -3,6 +3,7 @@ title: "The Big Day"
 client: "The Big Day"
 subtitle: "Our path to 20th of October 2018"
 cover: "./palacio.jpg"
+position: 3
 ---
 # The Venue
 

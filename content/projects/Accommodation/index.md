@@ -4,6 +4,7 @@ title: "Accommodations"
 cover: "./pestana-pool.jpg"
 date: "2018-03-27"
 subtitle: "We recommend you stay at the Pestana Sintra Golf Resort, but there are plenty of other options in Sintra."
+position: 5
 ---
 # Pestana Sintra Golf Resort
 
