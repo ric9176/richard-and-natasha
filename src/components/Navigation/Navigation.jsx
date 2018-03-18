@@ -7,6 +7,7 @@ import { Fade } from 'react-reveal';
 import config from '../../../config/SiteConfig';
 import styles from './Navigation.module.scss';
 import './Headroom.scss';
+import SignOutButton from '../../signup/SignOutButton'
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ export default class Navigation extends Component {
                 </Link>
               </span>
             </div>
+            <SignOutButton />
             <div className={styles.socialMedia}>
               <span>
                 <a
