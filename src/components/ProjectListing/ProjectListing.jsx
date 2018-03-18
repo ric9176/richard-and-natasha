@@ -16,8 +16,6 @@ const ProjectListing = (props) => {
       }
     ))
 
-    console.log(list)
-
     return (
       <div className={styles.base}>
         {list.map(project => (

@@ -3,6 +3,7 @@ import { firebase } from '../../firebase'
 import SignUpForm from '../signup'
 import Attendance from '../signup/Attendance'
 import SelectFood from '../signup/SelectFood'
+import SignInForm from '../signup/SignInForm'
 
 
 class Rsvp extends React.Component {
@@ -32,6 +33,8 @@ class Rsvp extends React.Component {
     return (
       <div>
         {content}
+        <br />
+          <SignInForm />
       </div>
     )
   }
