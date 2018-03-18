@@ -22,11 +22,8 @@ class SelectFood extends Component {
     const { food } = this.state
 
     firebase.auth.onAuthStateChanged(authUser => {
-      if (!authUser) {
-        alert('Sign in!')
-      } else {
-          // Udate user with menu option
-        console.log(authUser)
+
+        // Udate user with menu option
         db.doCreateFood(authUser.uid, food)
           .then(() => {
             this.setState(() => ({ ...INITIAL_STATE }))
@@ -36,10 +33,9 @@ class SelectFood extends Component {
             this.setState(updateByPropertyName('error', error))
           })
 
-    event.preventDefault()
-      }
     })
 
+    event.preventDefault()
   }
 
   render() {
