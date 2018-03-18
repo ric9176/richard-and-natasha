@@ -33,8 +33,12 @@ class Rsvp extends React.Component {
     return (
       <div>
         {content}
+
         <br />
+
+        {!this.state.authUser &&
           <SignInForm />
+        }
       </div>
     )
   }
