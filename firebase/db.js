@@ -1,19 +1,21 @@
 import { db } from './firebase';
 
-// User API
+// Save user as guests in realtime db
 
 export const doCreateUser = (id, username, email) =>
-  db.ref(`users/${id}`).set({
+  db.ref(`guests/${id}`).set({
     username,
     email,
   });
 
 export const onceGetUsers = () =>
-  db.ref('users').once('value');
+  db.ref('guests').once('value');
 
 // Make some attending choices
 
-export const doCreateFood = (id, food) =>
-  db.ref(`users/${id}`).update({
-    food
+export const doCreateFood = (id, food, risotto, steak) =>
+  db.ref(`guests/${id}`).update({
+    food,
+    risotto,
+    steak
   })
