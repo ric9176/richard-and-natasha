@@ -25,13 +25,15 @@ class SelectFood extends Component {
     console.log(this.state)
     let risotto = 0
     let steak = 0
+    let starterWithoutProscuitto = 0
     this.state.mainCourse === 'risotto' ? risotto = 1 : steak = 1
+    this.state.starter === 'withOutProscuitto' ? starterWithoutProscuitto = 1 : starterWithoutProscuitto = 0
     const { food } = this.state
 
     firebase.auth.onAuthStateChanged(authUser => {
         console.log('submit')
         // Udate user with menu option
-        db.doCreateFood(authUser.uid, food, risotto, steak)
+        db.doCreateFood(authUser.uid, food, starterWithoutProscuitto, risotto, steak)
           .then(() => {
             this.setState(() => ({ ...INITIAL_STATE }))
           })
