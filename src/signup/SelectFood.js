@@ -9,11 +9,9 @@ const updateByPropertyName = (propertyName, value) => () => ({
 
 const INITIAL_STATE = {
   food: '',
-  risotto: 0,
-  starterWithoutProsciutto: 0,
-  steak: 0,
-  mainCourse: '',
   error: null,
+  starter: undefined,
+  mainCourse: undefined,
 }
 
 class SelectFood extends Component {
@@ -23,17 +21,12 @@ class SelectFood extends Component {
     this.state = { ...INITIAL_STATE }
   }
 
-  assignMainCourse = () => {
-    if (this.state.mainCourse === 'risotto') {
-      this.setState({ risotto: 0, steak: 1 })
-    } else if (this.state.mainCourse === 'steak') {
-      this.setState({ steak: 0, risotto: 1 })
-    }
-  }
-
   onSubmit = (event) => {
     console.log(this.state)
-    const { food, risotto, steak } = this.state
+    let risotto = 0
+    let steak = 0
+    this.state.mainCourse === 'risotto' ? risotto = 1 : steak = 1
+    const { food } = this.state
 
     firebase.auth.onAuthStateChanged(authUser => {
         console.log('submit')
@@ -53,14 +46,17 @@ class SelectFood extends Component {
 
   handleChange = (e, { value }) => {
       this.setState({ mainCourse: value })
-      this.assignMainCourse()
+  }
+
+  handleStarterChange = (e, { value }) => {
+    this.setState({ starter: value })
   }
 
   render() {
     const {
       food,
-      risotto,
-      steak,
+      starter,
+      mainCourse,
       error
     } = this.state
 
@@ -68,19 +64,33 @@ class SelectFood extends Component {
 
     return (
       <Form onSubmit={this.onSubmit}>
-        <input
-          value={food}
-          onChange={event => this.setState(updateByPropertyName('food', event.target.value))}
-          type="text"
-          placeholder="Food"
-        />
+        <Form.Field>
+          <Checkbox
+            radio
+            label='I would like my starter (a cheese and prosciutto roll) WITH prosciutto.'
+            name='checkboxRadioGroup'
+            value='withProscuitto'
+            checked={starter === 'withProscuitto'}
+            onChange={this.handleStarterChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <Checkbox
+            radio
+            label='I would like my starter (a cheese and prosciutto roll) WITHOUT prosciutto.'
+            name='checkboxRadioGroup'
+            value='withOutProscuitto'
+            checked={starter === 'withOutProscuitto'}
+            onChange={this.handleStarterChange}
+          />
+        </Form.Field>
       <Form.Field>
         <Checkbox
           radio
           label='I would like Risotto'
           name='checkboxRadioGroup'
           value='risotto'
-          checked={this.state.mainCourse === 'risotto'}
+          checked={mainCourse === 'risotto'}
           onChange={this.handleChange}
         />
         </Form.Field>
@@ -90,10 +100,16 @@ class SelectFood extends Component {
             label='I would like Steak'
             name='checkboxRadioGroup'
             value='steak'
-            checked={this.state.mainCourse === 'steak'}
+            checked={mainCourse === 'steak'}
             onChange={this.handleChange}
           />
         </Form.Field>
+        <input
+          value={food}
+          onChange={event => this.setState(updateByPropertyName('food', event.target.value))}
+          type="text"
+          placeholder="Food"
+        />
         <Button type='submit'>Submit</Button>
       </Form>
     )
