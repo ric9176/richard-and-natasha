@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { auth, db, firebase } from '../../firebase';
-import { Form, Checkbox, Button, Header, Image, Modal } from 'semantic-ui-react';
+import Link, { navigateTo } from 'gatsby-link'
+import { Form, Checkbox, Button, Header, Image, Modal, Icon, Input, Divider } from 'semantic-ui-react';
 
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
@@ -12,54 +13,70 @@ const INITIAL_STATE = {
   error: null,
   starter: undefined,
   mainCourse: undefined,
-  showModal: false
+  showModal: false,
+  plusOne: false
 }
 
 class SelectFood extends Component {
   constructor(props) {
     super(props)
-
     this.state = { ...INITIAL_STATE }
+    this.starterWithoutProscuitto = 0
+    this.risotto = 0
+    this.steak = 0
   }
 
   onSubmit = (event) => {
-    console.log(this.state)
-    let risotto = 0
-    let steak = 0
-    let starterWithoutProscuitto = 0
-    this.state.mainCourse === 'risotto' ? risotto = risotto + 1 : steak = steak + 1
-    this.state.starter === 'withOutProscuitto' ? starterWithoutProscuitto = starterWithoutProscuitto + 1 : starterWithoutProscuitto = 0
+
+    this.state.mainCourse === 'risotto' ? this.risotto = this.risotto + 1 : this.steak = this.steak + 1
+    this.state.starter === 'withOutProscuitto' ? this.starterWithoutProscuitto = this.starterWithoutProscuitto + 1 : this.starterWithoutProscuitto = 0
+
     const { food } = this.state
 
     firebase.auth.onAuthStateChanged(authUser => {
+      // Udate user with menu option
+      const { starterWithoutProscuitto, risotto, steak } = this
+      db.doCreateFood(authUser.uid, food, starterWithoutProscuitto, risotto, steak)
+        .then(() => {
+          this.setState(() => ({ ...INITIAL_STATE }))
+          this.handleModalOpen()
+        })
+        .catch(error => {
+          this.setState(updateByPropertyName('error', error))
+        })
+      })
+      if(!this.state.plusOne) {
+        event.preventDefault()
+      } else {
+        navigateTo('/')
+      }
+      console.log(this.starterWithoutProscuitto, this.risotto, this.steak)
+    }
+      // if (this.state.plusOne) {
         // check existing data and imcrement values
-        // let plusOne = true
+
+          //handle increment of class variables
+          // let { starterWithoutProscuitto, risotto, steak } = this
+          // this.state.mainCourse === 'risotto' ? risotto = risotto + 1 : steak = steak + 1
+          // this.state.starter === 'withOutProscuitto' ? starterWithoutProscuitto = starterWithoutProscuitto + 1 : starterWithoutProscuitto = 0
         // db.onceGetUsers(authUser.uid)
         // .then(
         //   snapshot => {
-        //     if (plusOne) {
-        //       starterWithoutProscuitto = starterWithoutProscuitto + snapshot.val().starterWithoutProscuitto
-        //       risotto = risotto + snapshot.val().risotto
-        //       steak = steak + snapshot.val().steak
-        //       console.log(risotto)
+        //
+        //       // starterWithoutProscuitto = starterWithoutProscuitto + snapshot.val().starterWithoutProscuitto
+        //       // risotto = risotto + snapshot.val().risotto
+        //       // steak = steak + snapshot.val().steak
+        //       // console.log(risotto)
         //     }
-        //     console.log(snapshot.val())
+        //     // console.log(snapshot.val())
         //   }
         // )
-        // Udate user with menu option
-        db.doCreateFood(authUser.uid, food, starterWithoutProscuitto, risotto, steak)
-          .then(() => {
-            this.setState(() => ({ ...INITIAL_STATE }))
-            this.setState({showModal: !this.state.showModal})
-          })
-          .catch(error => {
-            this.setState(updateByPropertyName('error', error))
-          })
+        // .catch(error => {
+        //   alert(error)
+        // })
 
-    })
 
-    event.preventDefault()
-  }
+
 
   handleChange = (e, { value }) => {
       this.setState({ mainCourse: value })
@@ -69,7 +86,18 @@ class SelectFood extends Component {
     this.setState({ starter: value })
   }
 
-  handleClose = () => this.setState({ showModal: false })
+  handleModalClose = () => this.setState({ showModal: false })
+
+  handleModalOpen = () => this.setState({ showModal: true})
+
+  handlePlusOne = () => {
+    this.setState({ plusOne: true})
+    this.handleModalClose()
+  }
+
+  handleFoodRequst = (e, { value }) => {
+    this.setState({ food: value })
+  }
 
   render() {
     const {
@@ -79,24 +107,33 @@ class SelectFood extends Component {
       error
     } = this.state
 
-    console.log(this.state)
+    console.log(this.state.food)
 
   const ModalModalExample = () => (
   <Modal
     basic
     closeIcon
-    size='mini'
-    onClose={this.handleClose}
+    size='small'
+    style={{ textAlign: 'center' }}
+    onClose={this.handleModalClose}
     open={this.state.showModal}>
 
-    <Modal.Header>Select a Photo</Modal.Header>
+    <Modal.Header>Thanks for making your RSVP and food choice!</Modal.Header>
     <Modal.Content>
       <Modal.Description>
-        <Header>Default Profile Image</Header>
-        <p>We've found the following gravatar image associated with your e-mail address.</p>
-        <p>Is it okay to use this photo?</p>
+        <p>Would you also like to select the food choice for your significant other or plus one?</p>
       </Modal.Description>
     </Modal.Content>
+    <Modal.Actions style={{ textAlign: 'center' }}>
+      <Link to="/" activeClassName="active">
+        <Button basic color='green' inverted>
+          <Icon name='checkmark' /> No, it's just for me!
+        </Button>
+      </Link>
+      <Button onClick={this.handlePlusOne} basic color='green' inverted>
+        <Icon name='checkmark' /> Yes please!
+      </Button>
+    </Modal.Actions>
   </Modal>
 )
 
@@ -144,12 +181,14 @@ class SelectFood extends Component {
               onChange={this.handleChange}
             />
           </Form.Field>
-          <input
-            value={food}
-            onChange={event => this.setState(updateByPropertyName('food', event.target.value))}
+          <Input
+            onChange={this.handleFoodRequst}
             type="text"
-            placeholder="Food"
+            style={{width: "50%"}}
+            // label="Any speacial food reuirements"
+            placeholder="Speacial food requirements"
           />
+           <Divider />
           <Button type='submit'>Submit</Button>
         </Form>
       </div>
