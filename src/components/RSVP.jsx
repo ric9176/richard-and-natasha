@@ -27,7 +27,7 @@ class Rsvp extends React.Component {
     if (!this.state.authUser) {
       content = this.steps[this.state.step]
     } else {
-      content = <SelectFood />
+      content = <SelectFood authUser={this.state.authUser} />
     }
 
     return (

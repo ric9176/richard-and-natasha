@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { auth, db, firebase } from '../../firebase';
 import Link, { navigateTo } from 'gatsby-link'
 import { Form, Checkbox, Button, Header, Image, Modal, Icon, Input, Divider } from 'semantic-ui-react';
+
+import { auth, db, firebase } from '../../firebase'
+import ConfirmationModal from './ConfirmationModal'
 
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
@@ -13,7 +15,8 @@ const INITIAL_STATE = {
   starter: undefined,
   mainCourse: undefined,
   showModal: false,
-  plusOne: false
+  plusOne: false,
+  menuSelected: false,
 }
 
 class SelectFood extends Component {
@@ -25,18 +28,37 @@ class SelectFood extends Component {
     this.steak = 0
   }
 
-  onSubmit = (event) => {
-    console.log('food', this.food)
+  componentDidMount () {
+    db.onceGetUsers(this.props.authUser.uid)
+    .then(
+      snapshot => {
+          console.log('snapshot', snapshot.val().menuSelected === true)
+          if (snapshot.val().menuSelected === true) {
+            this.setState({
+              menuSelected: true,
+              starterWithoutProscuitto: snapshot.val().starterWithoutProscuitto,
+              risotto: snapshot.val().risotto,
+              steak: snapshot.val().steak
+            })
+          }
+        }
+    )
+    .catch(error => {
+      alert(error)
+    })
+  }
 
+  onSubmit = (event) => {
     this.state.mainCourse === 'risotto' ? this.risotto = this.risotto + 1 : this.steak = this.steak + 1
     this.state.starter === 'withOutProscuitto' ? this.starterWithoutProscuitto = this.starterWithoutProscuitto + 1 : this.starterWithoutProscuitto = 0
 
-    const { food } = this
+    const { food = '' } = this
 
     firebase.auth.onAuthStateChanged(authUser => {
       // Udate user with menu option
-      const { starterWithoutProscuitto, risotto, steak } = this
-      db.doCreateFood(authUser.uid, food, starterWithoutProscuitto, risotto, steak)
+      const { starterWithoutProscuitto, risotto, steak, plusOneName } = this
+      const menuSelected = true
+      db.doCreateFood(authUser.uid, food, starterWithoutProscuitto, risotto, steak, plusOneName, menuSelected)
         .then(() => {
           this.setState(() => ({ ...INITIAL_STATE }))
           this.handleModalOpen()
@@ -52,30 +74,6 @@ class SelectFood extends Component {
       }
       console.log(this.starterWithoutProscuitto, this.risotto, this.steak)
     }
-      // if (this.state.plusOne) {
-        // check existing data and imcrement values
-
-          //handle increment of class variables
-          // let { starterWithoutProscuitto, risotto, steak } = this
-          // this.state.mainCourse === 'risotto' ? risotto = risotto + 1 : steak = steak + 1
-          // this.state.starter === 'withOutProscuitto' ? starterWithoutProscuitto = starterWithoutProscuitto + 1 : starterWithoutProscuitto = 0
-        // db.onceGetUsers(authUser.uid)
-        // .then(
-        //   snapshot => {
-        //
-        //       // starterWithoutProscuitto = starterWithoutProscuitto + snapshot.val().starterWithoutProscuitto
-        //       // risotto = risotto + snapshot.val().risotto
-        //       // steak = steak + snapshot.val().steak
-        //       // console.log(risotto)
-        //     }
-        //     // console.log(snapshot.val())
-        //   }
-        // )
-        // .catch(error => {
-        //   alert(error)
-        // })
-
-
 
 
   handleChange = (e, { value }) => {
@@ -99,48 +97,49 @@ class SelectFood extends Component {
     this.setState({ food: value })
   }
 
+  handleFoodChange = () => {
+    this.setState({ menuSelected: false })
+  }
+
   render() {
     const {
       food,
       starter,
       mainCourse,
+      plusOne,
+      menuSelected,
       error
     } = this.state
 
-    console.log(this.food)
+    console.log(this.state)
 
-  const ModalModalExample = () => (
-  <Modal
-    basic
-    closeIcon
-    size='small'
-    style={{ textAlign: 'center' }}
-    onClose={this.handleModalClose}
-    open={this.state.showModal}>
+    let content
 
-    <Modal.Header>Thanks for making your RSVP and food choice!</Modal.Header>
-    <Modal.Content>
-      <Modal.Description>
-        <p>Would you also like to select the food choice for your significant other or plus one?</p>
-      </Modal.Description>
-    </Modal.Content>
-    <Modal.Actions style={{ textAlign: 'center' }}>
-      <Link to="/" activeClassName="active">
-        <Button basic color='green' inverted>
-          <Icon name='checkmark' /> No, it's just for me!
-        </Button>
-      </Link>
-      <Button onClick={this.handlePlusOne} basic color='green' inverted>
-        <Icon name='checkmark' /> Yes please!
-      </Button>
-    </Modal.Actions>
-  </Modal>
-)
 
     return (
       <div>
-        <ModalModalExample />
-        <Form onSubmit={this.onSubmit}>
+        <ConfirmationModal handleModalClose={this.handleModalClose} showModal={this.state.showModal} handlePlusOne={this.handlePlusOne} />
+          {menuSelected &&
+            <div>
+              <h1>My food selection</h1>
+              <p>{`risotto: ${this.state.risotto}`}</p>
+              <p>{`steak: ${this.state.steak}`}</p>
+              <p>{`vegitarian starter: ${this.state.starterWithoutProscuitto}`}</p>
+              <Button onClick={this.handleFoodChange}>I need to change this</Button>
+            </div>
+          }
+
+        {!menuSelected &&
+          <Form onSubmit={this.onSubmit}>
+          {plusOne &&
+            <Input
+              onChange={e => this.plusOneName = e.target.value}
+              type="text"
+              style={{width: "50%", padding: "1em 0"}}
+              placeholder="Enter their name here..."
+              label="The full name of your plus one"
+            />
+          }
           <Form.Field>
             <Checkbox
               radio
@@ -185,11 +184,12 @@ class SelectFood extends Component {
             onChange={e => this.food = e.target.value}
             type="text"
             style={{width: "50%"}}
-            placeholder="Speacial food requirements"
+            placeholder="Any special food requirements?"
           />
            <Divider />
           <Button type='submit'>Submit</Button>
         </Form>
+      }
       </div>
     )
   }

@@ -13,10 +13,12 @@ export const onceGetUsers = (id) =>
 
 // Make some attending choices
 
-export const doCreateFood = (id, food, starterWithoutProscuitto, risotto, steak) =>
+export const doCreateFood = (id, food, starterWithoutProscuitto, risotto, steak, plusOneName = 'na', menuSelected) =>
   db.ref(`guests/${id}`).update({
     food,
     starterWithoutProscuitto,
     risotto,
-    steak
+    steak,
+    plusOneName,
+    menuSelected
   })
