@@ -119,77 +119,75 @@ class SelectFood extends Component {
     return (
       <div>
         <ConfirmationModal handleModalClose={this.handleModalClose} showModal={this.state.showModal} handlePlusOne={this.handlePlusOne} />
-          {menuSelected &&
+          {menuSelected ?
             <div>
               <h1>My food selection</h1>
-              <p>{`risotto: ${this.state.risotto}`}</p>
-              <p>{`steak: ${this.state.steak}`}</p>
-              <p>{`vegitarian starter: ${this.state.starterWithoutProscuitto}`}</p>
+              <p>{`Risotto: ${this.state.risotto}`}</p>
+              <p>{`Steak: ${this.state.steak}`}</p>
+              <p>{`Vegetarian starter: ${this.state.starterWithoutProscuitto}`}</p>
               <Button onClick={this.handleFoodChange}>I need to change this</Button>
             </div>
-          }
-
-        {!menuSelected &&
-          <Form onSubmit={this.onSubmit}>
-          {plusOne &&
-            <Input
-              onChange={e => this.plusOneName = e.target.value}
-              type="text"
-              style={{width: "50%", padding: "1em 0"}}
-              placeholder="Enter their name here..."
-              label="The full name of your plus one"
-            />
-          }
+            :
+            <Form onSubmit={this.onSubmit}>
+            {plusOne &&
+              <Input
+                onChange={e => this.plusOneName = e.target.value}
+                type="text"
+                style={{width: "50%", padding: "1em 0"}}
+                placeholder="Enter their name here..."
+                label="The full name of your plus one"
+              />
+            }
+            <Form.Field>
+              <Checkbox
+                radio
+                label='I would like my starter (a cheese and prosciutto roll) WITH prosciutto.'
+                name='checkboxRadioGroup'
+                value='withProscuitto'
+                checked={starter === 'withProscuitto'}
+                onChange={this.handleStarterChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Checkbox
+                radio
+                label='I would like my starter (a cheese and prosciutto roll) WITHOUT prosciutto.'
+                name='checkboxRadioGroup'
+                value='withOutProscuitto'
+                checked={starter === 'withOutProscuitto'}
+                onChange={this.handleStarterChange}
+              />
+            </Form.Field>
           <Form.Field>
             <Checkbox
               radio
-              label='I would like my starter (a cheese and prosciutto roll) WITH prosciutto.'
+              label='I would like asparagus risotto (vegetarian).'
               name='checkboxRadioGroup'
-              value='withProscuitto'
-              checked={starter === 'withProscuitto'}
-              onChange={this.handleStarterChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Checkbox
-              radio
-              label='I would like my starter (a cheese and prosciutto roll) WITHOUT prosciutto.'
-              name='checkboxRadioGroup'
-              value='withOutProscuitto'
-              checked={starter === 'withOutProscuitto'}
-              onChange={this.handleStarterChange}
-            />
-          </Form.Field>
-        <Form.Field>
-          <Checkbox
-            radio
-            label='I would like Risotto'
-            name='checkboxRadioGroup'
-            value='risotto'
-            checked={mainCourse === 'risotto'}
-            onChange={this.handleChange}
-          />
-          </Form.Field>
-          <Form.Field>
-            <Checkbox
-              radio
-              label='I would like Steak'
-              name='checkboxRadioGroup'
-              value='steak'
-              checked={mainCourse === 'steak'}
+              value='risotto'
+              checked={mainCourse === 'risotto'}
               onChange={this.handleChange}
             />
-          </Form.Field>
-          <Input
-            onChange={e => this.food = e.target.value}
-            type="text"
-            style={{width: "50%"}}
-            placeholder="Any special food requirements?"
-          />
-           <Divider />
-          <Button type='submit'>Submit</Button>
-        </Form>
-      }
+            </Form.Field>
+            <Form.Field>
+              <Checkbox
+                radio
+                label='I would like steak with potatoes and Duoro glaze.'
+                name='checkboxRadioGroup'
+                value='steak'
+                checked={mainCourse === 'steak'}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Input
+              onChange={e => this.food = e.target.value}
+              type="text"
+              style={{width: "50%"}}
+              placeholder="Any special food requirements?"
+            />
+             <Divider />
+            <Button type='submit'>Submit</Button>
+          </Form>
+          }
       </div>
     )
   }

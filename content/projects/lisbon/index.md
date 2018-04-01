@@ -150,3 +150,40 @@ Generally speaking, taxis and other services are not tipped. The only place wher
 
 ####Can you recommend places to see and eat?
 Of course! We love Portugal and we love food / giving tips so here's our list of favorite places to go:
+
+Typical things to eat and drink while you’re in Lisbon: Vinho Verde, pasteis de nata, Duoro wine, sardines, a gelato from [Santini](http://www.santini.pt/).
+
+#####Lisbon
+
+There are plenty of “miradouros” in Lisbon where you can have a drink and take in the city’s many incredible views. Check out the 10 best ones [here](https://www.lisbonlux.com/magazine/lisbons-10-most-beautiful-views/).
+
+The usual tourist attractions include taking the tram up to the [São Jorge Castle](https://www.tripadvisor.com/Attraction_Review-g189158-d195107-Reviews-Castelo_de_S_Jorge-Lisbon_Lisbon_District_Central_Portugal.html) and walking around the [Praça do Comércio](https://www.tripadvisor.com/Attraction_Review-g189158-d199878-Reviews-Praca_do_Comercio_Terreiro_do_Paco-Lisbon_Lisbon_District_Central_Portugal.html).
+
+[Chapitô à Mesa](https://www.tripadvisor.com/Restaurant_Review-g189158-d3683771-Reviews-Chapito_a_Mesa-Lisbon_Lisbon_District_Central_Portugal.html)-- An amazing restaurant in Lisbon with breathtaking views of the city.
+
+[Leitaria a Camponesa](https://www.tripadvisor.com/Restaurant_Review-g189158-d4090325-Reviews-Leitaria_Camponeza-Lisbon_Lisbon_District_Central_Portugal.html) -- A delicious little restaurant in the heart of Baixa, Lisbon.
+
+The [Teatro Nacional de São Carlos](https://www.tripadvisor.com/Attraction_Review-g189158-d195868-Reviews-Teatro_Nacional_de_Sao_Carlos-Lisbon_Lisbon_District_Central_Portugal.html) is a gorgeous opera house in Chiado, Lisbon where you can see operas, ballets and more for affordable prices.
+
+Mercado da Ribeira, also known as the [Time Out Market](https://www.timeoutmarket.com/lisboa/en/), has stands from some of Lisbon’s best restaurants.
+
+The [Calouste Gulbenkian Foundation](https://gulbenkian.pt/) also has some great exhibits and concerts.   
+
+[Park](https://www.lisbonlux.com/lisbon-bars/park.html) is one of our favorite bars in Lisbon because of the views of the bridge.
+
+[Pensão Amor](https://www.tripadvisor.com/Attraction_Review-g189158-d3865221-Reviews-Pensao_Amor-Lisbon_Lisbon_District_Central_Portugal.html)  is another fun bar in Lisbon, right by the Cais do Sodre station.
+
+
+#####Belem
+
+A small town on the coast of Lisbon where you can have your fill of the original [pasteis de nata](https://www.tripadvisor.com/Restaurant_Review-g189158-d939704-Reviews-Pasteis_de_Belem-Lisbon_Lisbon_District_Central_Portugal.html), visit the [Jerónimos Monastery](https://www.tripadvisor.com/Attraction_Review-g189158-d195318-Reviews-Jeronimos_Monastery-Lisbon_Lisbon_District_Central_Portugal.html) and the [Museu Coleção Berardo](http://en.museuberardo.pt/).
+
+On the way to Belem is also the trendy [LX Factory](http://www.lxfactory.com/en/welcome/) where you can check out restaurants, a very cool bookstore and art shops.
+
+#####Cascais
+
+The town where Richard and Natasha live has lovely beaches, the [Paula Rego Museum](https://www.tripadvisor.com/Attraction_Review-g189154-d1552438-Reviews-Casa_Das_Historias_Paula_Rego-Cascais_Lisbon_District_Central_Portugal.html) and plenty of wonderful restaurants such as [Masala](https://www.tripadvisor.com/Restaurant_Review-g189154-d1173839-Reviews-Masala_Indian_Restaurant-Cascais_Lisbon_District_Central_Portugal.html) (Indian food), [Galeria House of Wonders](https://www.tripadvisor.com/Restaurant_Review-g189154-d2569147-Reviews-Cafe_Galeria_House_of_Wonders-Cascais_Lisbon_District_Central_Portugal.html) (vegan food and lovely terrace) and more. We also recommend you rent a bike (there are eco-bike locations all over town where you can rent bikes from the municipality for a euro and a bit) and ride along the coast all the way to [Guincho Beach](https://www.tripadvisor.com/Attraction_Review-g189154-d197710-Reviews-Guincho_Beach-Cascais_Lisbon_District_Central_Portugal.html) and the [Cresmina sand dunes](https://www.tripadvisor.com/Restaurant_Review-g189154-d6468592-Reviews-Duna_Da_Cresmina-Cascais_Lisbon_District_Central_Portugal.html) for beautiful sights.
+
+#####Sintra
+
+While our wedding will be held at one of the most iconic palaces in Sintra, there are so many other castles, palaces and just [amazing buildings to see in Sintra](http://www.sintra-portugal.com/index.html) and we recommend them all if you have a chance.

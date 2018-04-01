@@ -10,19 +10,12 @@ const Contact = () => (
     <Helmet title={`Contact | ${config.siteTitle}`} />
     <Header>Contact</Header>
     <Container text>
-      <h1>Contact me!</h1>
+      <h1>Contact us!</h1>
       <p>
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts. Separated they
-            live in Bookmarksgrove right at the coast of the Semantics, a large
-            language ocean. A small river named Duden flows by their place and
-            supplies it with the necessary regelialia. It is a paradisematic
-            country, in which roasted parts of sentences fly into your mouth.
-            Even the all-powerful Pointing has no control about the blind texts
-            it is an almost unorthographic life One day however a small line of
-            blind text by the name of Lorem Ipsum decided to leave for the far
-            World of Grammar. The Big Oxmox advised her not to do so, because
-            there were thousands.
+      If you have a question that isn’t answered on our extensive [FAQ page](), please email or message either of us on Facebook, Whatsapp or via email at [richardynatasha@gmail.com](mailto:richardynatasha@gmail.com). But first, please read through this entire page since we have tried really hard to answer most questions we could think of in relation to the wedding and travel to Portugal. 
+
+During the week of the wedding, we will likely be hard to reach, so if you have any urgent questions, please contact Meda Sandu (+44 7580 093993) and Jonathan Moss (+44 7912 861335) via phone or Whatsapp. They are lovely and will be happy to help.
+
       </p>
     </Container>
     <Footer />

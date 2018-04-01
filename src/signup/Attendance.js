@@ -2,8 +2,8 @@ import React from 'react'
 
 const Attendance = (props) => (
   <div>
-    <button onClick={props.nextStep}>attend</button>
-    <button>Can't make it, go to page with form</button>
+    <button onClick={props.nextStep}>Attending</button>
+    <button>Can't make it</button>
   </div>
 )
 

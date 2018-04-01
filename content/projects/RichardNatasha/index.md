@@ -6,7 +6,7 @@ date: "2018-06-08"
 subtitle: "Our path to 20th of October 2018"
 position: 1
 ---
-# Description
+
 
 Richard and Natasha met in Madrid in 2012 while he was finishing his licienciatura in Madrid and Natasha was traveling after graduate school. They quickly took a liking to each other when they were introduced by Mabi (is it any wonder she's the Maid of Honor?) who attended university in Madrid with Richard. Since then they've had a bit of a crazy journey, living together in Madrid, Madeira, Los Angeles, Cascais, Buenos Aires, Edinburgh and London!
 
