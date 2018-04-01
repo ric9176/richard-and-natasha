@@ -9,7 +9,6 @@ const updateByPropertyName = (propertyName, value) => () => ({
 
 
 const INITIAL_STATE = {
-  food: '',
   error: null,
   starter: undefined,
   mainCourse: undefined,
@@ -27,11 +26,12 @@ class SelectFood extends Component {
   }
 
   onSubmit = (event) => {
+    console.log('food', this.food)
 
     this.state.mainCourse === 'risotto' ? this.risotto = this.risotto + 1 : this.steak = this.steak + 1
     this.state.starter === 'withOutProscuitto' ? this.starterWithoutProscuitto = this.starterWithoutProscuitto + 1 : this.starterWithoutProscuitto = 0
 
-    const { food } = this.state
+    const { food } = this
 
     firebase.auth.onAuthStateChanged(authUser => {
       // Udate user with menu option
@@ -107,7 +107,7 @@ class SelectFood extends Component {
       error
     } = this.state
 
-    console.log(this.state.food)
+    console.log(this.food)
 
   const ModalModalExample = () => (
   <Modal
@@ -182,10 +182,9 @@ class SelectFood extends Component {
             />
           </Form.Field>
           <Input
-            onChange={this.handleFoodRequst}
+            onChange={e => this.food = e.target.value}
             type="text"
             style={{width: "50%"}}
-            // label="Any speacial food reuirements"
             placeholder="Speacial food requirements"
           />
            <Divider />
