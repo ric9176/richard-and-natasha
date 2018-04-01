@@ -26,7 +26,6 @@ class NotAttending extends Component {
         console.log('error', error)
       })
     }
-
   }
 
   showModal = () => {
@@ -39,7 +38,6 @@ class NotAttending extends Component {
   }
 
   render() {
-    // const isInvalid = !this.name || !this.message
 
     return (
       <div className="container about-container">
