@@ -1,5 +1,9 @@
 {
   "rules": {
+    "notAttending": {
+      ".read": "auth != null",
+    	".write": true
+    },
     ".read": "auth != null",
     ".write": "auth != null"
   }
