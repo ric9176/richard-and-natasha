@@ -9,6 +9,7 @@ import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
 import styles from './project.module.scss';
 import RSVP from '../components/RSVP'
+import Stripe from '../components/Stripe'
 
 const Project = (props) => {
   const { slug } = props.pathContext;
@@ -63,6 +64,10 @@ const Project = (props) => {
             className={styles.content}
             dangerouslySetInnerHTML={{ __html: postNode.html }}
           />
+          {/* {
+            project.title === "Honeymoon - Sal, Cape Verde" &&
+            <Stripe />
+          } */}
         </Container>
         <Footer />
       </div>

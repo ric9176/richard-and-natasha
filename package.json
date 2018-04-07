@@ -37,7 +37,7 @@
     "react-icons": "^2.2.7",
     "react-palette": "^0.1.3",
     "react-reveal": "^0.7.3",
-    "semantic-ui-css": "^2.2.14",
+    "react-stripe-elements": "^1.6.0",
     "semantic-ui-react": "^0.78.3"
   },
   "keywords": [

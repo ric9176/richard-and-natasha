@@ -3,8 +3,8 @@ import Helmet from 'react-helmet';
 import Navigation from '../components/Navigation/Navigation';
 import SEO from '../components/SEO/SEO';
 import config from '../../config/SiteConfig';
+// import 'semantic-ui-css/semantic.min.css';
 import '../utils/emma.scss';
-import 'semantic-ui-css/semantic.min.css';
 
 const MainLayout = (props) => {
   const { children } = props;

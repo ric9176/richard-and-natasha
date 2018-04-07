@@ -35,8 +35,20 @@ export default class Navigation extends Component {
                 <Link to="/about" activeClassName="active">
                   About
                 </Link>
+                <Link to="/rsvp" activeClassName="active">
+                  RSVP
+                </Link>
                 <Link to="/contact" activeClassName="active">
                   Contact
+                </Link>
+                <Link to="/fa-qs" activeClassName="active">
+                  FAQs
+                </Link>
+                <Link to="/the-big-day" activeClassName="active">
+                  Schedule
+                </Link>
+                <Link to="/honeymoon-sal-cape-verde" activeClassName="active">
+                  Registry
                 </Link>
               </span>
             </nav>
@@ -51,25 +63,11 @@ export default class Navigation extends Component {
             <div className={styles.socialMedia}>
               <span>
                 <a
-                  href="https://www.instagram.com/lekoarts.de"
+                  href="https://www.instagram.com/richardandnatasha"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaInstagram />
-                </a>
-                <a
-                  href="https://www.behance.net/lekoarts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaBehance />
-                </a>
-                <a
-                  href="https://dribbble.com/LeKoArts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaDribbble />
                 </a>
               </span>
             </div>

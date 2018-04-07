@@ -11,7 +11,7 @@ module.exports = {
   // og: Meta Tags
   ogSiteName: 'richardandnatasha', // Facebook Site Name
   googleAnalyticsID: 'UA-12345689-1',
-  copyright: 'Copyright © 2018. MIT License. Richard & Nataha.', // Copyright in the footer of the site
+  copyright: 'Copyright © 2018. Richard & Natasha.', // Copyright in the footer of the site
   // You can translate these three words into your language if you want.
   // They'll be shown on the project page header
   client: 'What',
@@ -24,7 +24,7 @@ module.exports = {
   themeColor: '#3498DB',
   backgroundColor: '#2b2e3c',
   // Settings for typography.js
-  headerFontFamily: 'Merriweather',
-  bodyFontFamily: 'Roboto',
+  headerFontFamily: 'Pacifico',
+  bodyFontFamily: 'Cambria',
   baseFontSize: '16px',
 };

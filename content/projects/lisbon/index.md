@@ -10,14 +10,14 @@ position: 4
 
 If you have a question that isn’t answered on our extensive FAQ page, please email or message either of us. But first, please read through this entire page since we have tried really hard to answer most questions we could think of in relation to the wedding and travel to Portugal.
 
-During the week of the wedding, we will likely be hard to reach, so if you have any urgent questions, please contact Meda Sandu and Jonathan Moss, whose details are on the [Contact Us]() page. They are lovely and will be happy to help.
+During the week of the wedding, we will likely be hard to reach, so if you have any urgent questions, please contact Meda Sandu and Jonathan Moss, whose details are on the [Contact Us](/contact) page. They are lovely and will be happy to help.
 
 #Wedding Q’s
 
 ##RSVP
 
 ####How do I RSVP? Will you be sending out formal paper invitations?
-Please see our [RSVP page](). No paper invitations will be sent aside from the postcard you have received.
+Please see our [RSVP page](/rsvp). No paper invitations will be sent aside from the postcard you have received.
 
 ####When should I RSVP by?
 Please let us know as soon as possible whether you can attend.
@@ -34,7 +34,7 @@ We would prefer that you send us your photos and videos rather than post them on
 ##GIFTS
 
 ####Do you have a wedding registry?
-See our [honeyfund page]().
+See our [honeyfund page](/honeymoon-sal-cape-verde).
 
 ##DRESS CODE & BEAUTY SERVICES
 
