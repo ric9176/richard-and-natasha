@@ -43,9 +43,6 @@ export default class HTML extends React.Component {
           {this.props.headComponents}
           <link rel="shortcut icon" href={favicon} />
           <link rel="apple-touch-icon" href={appleTouchIcon} />
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/button.css" />
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/input.min.css" />
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/components/checkbox.min.css" />
           <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" />
           {css}
           <script src="https://js.stripe.com/v3/"></script>

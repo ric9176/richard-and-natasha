@@ -29,7 +29,9 @@ Please check with the bride and groom prior to inviting a date. While we would l
 Yes. Please let us know if your child is old enough to require a meal so we can let the caterers know. We will not be arranging babysitting.
 
 ####Can I post pictures and videos from your wedding on social media?
-We would prefer that you send us your photos and videos rather than post them on social media, for privacy issues. If you must post, please make sure to share only with your friends, not public.
+We would prefer that you send us your photos and videos rather than post them on social media, for privacy issues. We have opened a private instagram account [@tashandrich](www.instagram.com/tashandrich) for all the wedding pics.
+
+If you must post on your own social media accounts, please make sure to share only with your friends, not public.
 
 ##GIFTS
 
@@ -70,7 +72,7 @@ Open bar.
 ##ACCOMODATIONS & TRANSPORTATION
 
 ####Where should I sleep on the night of the wedding?
-See our [accommodations page]().
+See our [accommodations page](/accommodations).
 
 ####How do we get to the wedding venue?
 We will arrange a shuttle to take people staying at the Pestana Sintra Golf Resort to the Palacio at 16:25. People staying in other hotels or renting cars, there is plenty of parking and you can take an uber or taxi to the Palacio without a problem. Please be sure to leave at least 30 mins to get the venue even if you are staying in Sintra, as there can often be delays on the mountain.
@@ -81,7 +83,7 @@ While we will be arranging a shuttle back to the recommended hotel for straggler
 ##VENUE & CEREMONY
 
 ####What is the schedule for the wedding day?
-Please visit [The Big Day page]().
+Please visit [The Big Day page](/the-big-day).
 
 ####What language will the ceremony be held in?
 While most of our guests speak several languages, the one most have in common is English (and it happens to be our native language) so the ceremony will be held in a mix of British and American English.

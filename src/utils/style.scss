@@ -3,48 +3,48 @@
 @import '../../config/variables';
 
 .container {
-	padding-top: 6.25rem;
+	padding-top: 6.25rem !important;
 }
 
 .vibrant-canvas {
-	display: none;
+	display: none !important;
 }
 
 .bm-burger-button {
-	height: 30px;
-	position: fixed;
-	right: 1rem;
-	top: .8rem;
-	width: 36px;
+	height: 30px !important;
+	position: fixed !important;
+	right: 1rem !important;
+	top: .8rem !important;
+	width: 36px !important;
 }
 
 .bm-burger-bars {
-	background: #373a47;
+	background: #373a47 !important;
 }
 
 .bm-cross-button {
 	height: 24px;
 	right: 2rem !important;
 	top: 2rem !important;
-	transform: scale(2.5);
-	width: 24px;
+	transform: scale(2.5) !important;
+	width: 24px !important;
 }
 
 .bm-cross {
-	background: #fff;
+	background: #fff !important;
 }
 
 .bm-menu {
 	background: $brand-primary !important;
-	font-size: 1.15em;
-	padding: 2.5em 1.5em 0;
+	font-size: 1.15em !important;
+	padding: 2.5em 1.5em 0 !important;
 }
 
 .bm-morph-shape {
-	fill: #373a47;
+	fill: #373a47 !important;
 }
 
 .bm-item-list {
-	color: #b8b7ad;
-	padding: .8em;
+	color: #b8b7ad !important;
+	padding: .8em !important;
 }

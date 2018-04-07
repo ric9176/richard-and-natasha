@@ -14,6 +14,7 @@ $transition-headroom: all .35s ease-in-out;
 .headroom {
 	padding: 1rem 2rem;
 	width: 100%;
+	background-color: #f3f3f3;
 
 	a.active {
 		color: $brand-primary;

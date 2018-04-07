@@ -63,7 +63,7 @@ export default class Navigation extends Component {
             <div className={styles.socialMedia}>
               <span>
                 <a
-                  href="https://www.instagram.com/richardandnatasha"
+                  href="https://www.instagram.com/tashandrich"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

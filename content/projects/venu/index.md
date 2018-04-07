@@ -15,7 +15,7 @@ We feel so fortunate to be able to celebrate our wedding at such a magical place
 
 Here's what you can expect on the day of the wedding.
 
-**16:25** Those of you staying at the Pestana Sintra Golf Resort will take the shuttle from the hotel entrance at promptly 4:25 pm. Please be on time or risk making all accompanying guests late to the ceremony.
+**16:25** Those of you staying at the Pestana Sintra Golf Resort will take the shuttle from the hotel entrance at promptly 4:25 pm. Please be on time or risk being left behind.
 
 **17:00** You will arrive at the Palácio da Pena where you will walk up the hill to the palace and be greeted by servers who will happily provide you with an alcoholic or non-alcholic Welcome Drink. They will then instruct you how to get to the Terraço dos Veados, the private terrace where the ceremony will take place.
 
