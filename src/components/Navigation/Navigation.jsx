@@ -25,6 +25,7 @@ export default class Navigation extends Component {
   closeMenu() {
     this.setState({ menuOpen: false });
   }
+  
   render() {
     return (
       <header>

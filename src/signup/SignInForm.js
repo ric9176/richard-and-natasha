@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Input, Divider, Button } from 'semantic-ui-react'
 
 import { auth } from '../../firebase';
 
@@ -52,25 +53,25 @@ class SignInForm extends Component {
       email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <Form onSubmit={this.onSubmit}>
+        <Input
           value={email}
           onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
           type="text"
           placeholder="Email Address"
         />
-        <input
+        <Input
           value={password}
           onChange={event => this.setState(updateByPropertyName('password', event.target.value))}
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <Button disabled={isInvalid} type="submit">
           Sign In
-        </button>
+        </Button>
 
         { error && <p>{error.message}</p> }
-      </form>
+      </Form>
     );
   }
 }

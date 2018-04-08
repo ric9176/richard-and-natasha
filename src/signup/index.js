@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Form, Input, Divider, Button } from 'semantic-ui-react'
+
 import { auth, db } from '../../firebase';
 
 const updateByPropertyName = (propertyName, value) => () => ({
@@ -64,37 +66,37 @@ class SignUpForm extends Component {
       email === ''
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <Form onSubmit={this.onSubmit}>
+        <Input
           value={username}
           onChange={event => this.setState(updateByPropertyName('username', event.target.value))}
           type="text"
           placeholder="Full Name"
         />
-        <input
+        <Input
           value={email}
           onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
           type="text"
           placeholder="Email Address"
         />
-        <input
+        <Input
           value={passwordOne}
           onChange={event => this.setState(updateByPropertyName('passwordOne', event.target.value))}
           type="password"
           placeholder="Password"
         />
-        <input
+        <Input
           value={passwordTwo}
           onChange={event => this.setState(updateByPropertyName('passwordTwo', event.target.value))}
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <Button disabled={isInvalid} type="submit">
           Sign Up
-        </button>
+        </Button>
 
         { error && <p>{error.message}</p> }
-      </form>
+      </Form>
     );
   }
 }
