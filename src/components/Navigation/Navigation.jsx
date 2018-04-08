@@ -93,6 +93,9 @@ export default class Navigation extends Component {
               >
                 About
               </Link>
+              <Link to="/rsvp" activeClassName="active" onClick={() => this.closeMenu()}>
+                RSVP
+              </Link>
               <Link
                 to="/contact"
                 activeClassName="active"
@@ -100,27 +103,22 @@ export default class Navigation extends Component {
               >
                 Contact
               </Link>
+              <Link to="/fa-qs" activeClassName="active" onClick={() => this.closeMenu()}>
+                FAQs
+              </Link>
+              <Link to="/the-big-day" activeClassName="active" onClick={() => this.closeMenu()}>
+                Schedule
+              </Link>
+              <Link to="/honeymoon-sal-cape-verde" activeClassName="active" onClick={() => this.closeMenu()}>
+                Registry
+              </Link>
               <div className={styles.mobileNavSocialMedia}>
                 <a
-                  href="https://www.instagram.com/lekoarts.de"
+                  href="https://www.instagram.com/tashandrich"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaInstagram />
-                </a>
-                <a
-                  href="https://www.behance.net/lekoarts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaBehance />
-                </a>
-                <a
-                  href="https://dribbble.com/LeKoArts"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaDribbble />
                 </a>
               </div>
             </Menu>
