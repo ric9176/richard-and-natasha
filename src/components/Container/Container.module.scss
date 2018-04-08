@@ -11,10 +11,10 @@
 	max-width: $container-text;
 
 	p {
-		font-size: 1.25rem;
-		letter-spacing: -.003em;
-		line-height: 1.58;
-		--baseline-multiplier: 0.179;
-		--x-height-multiplier: 0.35;
+		font-size: 18px !important;
+		letter-spacing: -.003em !important;
+		line-height: 1.58 !important;
+		--baseline-multiplier: 0.179 !important;
+		--x-height-multiplier: 0.35 !important;
 	}
 }

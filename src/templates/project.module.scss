@@ -4,6 +4,7 @@
 	margin: 0 auto;
 	padding-bottom: $distance;
 	padding-top: $distance;
+	font-size: 18px;
 }
 
 .headerWrapper {
@@ -28,6 +29,9 @@
 
 .title {
 	margin: 1rem 0;
+	h1 {
+		font-family: Pacifico;
+	}
 }
 
 .information {
