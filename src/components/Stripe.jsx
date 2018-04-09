@@ -1,4 +1,6 @@
 import React from 'react'
+import { Form, Input, Divider, Button, Confirm } from 'semantic-ui-react'
+import { firebase, db } from '../../firebase'
 
 import {
 	CardElement,
@@ -15,8 +17,9 @@ import {
 const handleBlur = () => {
   console.log('[blur]');
 };
-const handleChange = change => {
-  console.log('[change]', change);
+const handleChange = (e, data) => {
+  console.log('[change]', data);
+	console.log('e', e)
 };
 const handleClick = () => {
   console.log('[click]');
@@ -48,14 +51,29 @@ const createOptions = (fontSize) => {
 };
 
 class _CardForm extends React.Component {
+
+
+
+	processPayment = (token, amount) => {
+		const payment = { token, amount }
+		db.donate(user, payment)
+	}
+
   handleSubmit = ev => {
     ev.preventDefault();
-    this.props.stripe.createToken().then(payload => console.log(payload));
-  };
+    const payload = this.props.stripe.createToken().then(payload => {
+			console.log(payload)
+			firebase.auth.onAuthStateChanged(authUser => {
+				db.donate(authUser.uid, payload)
+				console.log('saved!')
+			})
+		})
+  }
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <Form onSubmit={this.handleSubmit}>
+        <label style={{width: "50%"}}>
           Card details
           <CardElement
             style={{width: '100%'}}
@@ -66,17 +84,19 @@ class _CardForm extends React.Component {
             {...createOptions(this.props.fontSize)}
           />
         </label>
-        <button>Pay</button>
-      </form>
+        <Button>Pay</Button>
+      </Form>
     );
   }
 }
+
 const CardForm = injectStripe(_CardForm);
 
 class _SplitForm extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault();
     this.props.stripe.createToken().then(payload => console.log(payload));
+
   };
   render() {
     return (
@@ -155,9 +175,9 @@ class Checkout extends React.Component {
           <CardForm fontSize={elementFontSize} />
         </Elements>
         <h2>Card Split-field Form</h2>
-        <Elements>
+        {/* <Elements>
           <SplitForm fontSize={elementFontSize} />
-        </Elements>
+        </Elements> */}
       </div>
     );
   }

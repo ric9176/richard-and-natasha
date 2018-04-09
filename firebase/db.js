@@ -27,3 +27,9 @@ export const doCreateFood = (id, food, starterWithoutProscuitto, risotto, steak,
     plusOneName,
     menuSelected
   })
+
+export const donate = (id, payload) => {
+  return db.ref(`donations/${id}`).push({
+    payload
+  })
+}
