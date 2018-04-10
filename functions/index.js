@@ -9,10 +9,10 @@ const stripe = require('stripe')(functions.config().stripe.testkey)
 
 
 exports.stripeCharge = functions.database
-                                .ref('/payments/{userId}/{paymentId}')
+                                .ref('donations/{userId}/{paymentId}')
                                 .onWrite(event => {
 
-
+ console.log("function triggered")
 
   const payment = event.data.val();
   const userId = event.params.userId;
