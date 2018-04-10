@@ -31,6 +31,7 @@
     "gatsby-source-filesystem": "^1.5.16",
     "gatsby-transformer-remark": "^1.7.30",
     "gatsby-transformer-sharp": "^1.6.16",
+    "jsdom": "^11.7.0",
     "react-burger-menu": "^2.2.3",
     "react-headroom": "^2.2.2",
     "react-helmet": "^5.2.0",

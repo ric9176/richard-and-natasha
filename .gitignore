@@ -6,3 +6,4 @@ firebase/firebase.js
 # Build directory
 public/
 .DS_Store
+Stipe.js

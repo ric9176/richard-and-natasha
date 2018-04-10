@@ -1,6 +1,8 @@
 import React from 'react'
 import { Form, Input, Divider, Button, Confirm } from 'semantic-ui-react'
 import { firebase, db } from '../../firebase'
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 import {
 	CardElement,
@@ -151,14 +153,18 @@ const SplitForm = injectStripe(_SplitForm);
 class Checkout extends React.Component {
   constructor() {
     super();
+
+		const dom = new JSDOM(`<!DOCTYPE html>`);
+
     this.state = {
-      elementFontSize: window.innerWidth < 450 ? '14px' : '18px',
+      elementFontSize: dom.window.innerWidth < 450 ? '14px' : '18px',
     };
-    window.addEventListener('resize', () => {
-      if (window.innerWidth < 450 && this.state.elementFontSize !== '14px') {
+
+    dom.window.addEventListener('resize', () => {
+      if (dom.window.innerWidth < 450 && this.state.elementFontSize !== '14px') {
         this.setState({elementFontSize: '14px'});
       } else if (
-        window.innerWidth >= 450 &&
+        dom.window.innerWidth >= 450 &&
         this.state.elementFontSize !== '18px'
       ) {
         this.setState({elementFontSize: '18px'});
