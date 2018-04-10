@@ -64,13 +64,13 @@ const Project = (props) => {
             className={styles.content}
             dangerouslySetInnerHTML={{ __html: postNode.html }}
           />
-          {
+          {/* {
             project.title === "Honeymoon - Sal, Cape Verde" &&
             <Stripe />
-          }
+          } */}
         </Container>
         <Footer />
-      </div>
+        </div>
     )
   }
 
