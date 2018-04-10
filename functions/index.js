@@ -12,7 +12,6 @@ exports.stripeCharge = functions.database
                                 .ref('donations/{userId}/{paymentId}')
                                 .onWrite(event => {
 
- console.log("function triggered")
 
   const payment = event.data.val();
   const userId = event.params.userId;
