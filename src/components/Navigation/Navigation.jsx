@@ -25,7 +25,7 @@ export default class Navigation extends Component {
   closeMenu() {
     this.setState({ menuOpen: false });
   }
-  
+
   render() {
     return (
       <header>
@@ -33,23 +33,23 @@ export default class Navigation extends Component {
           <Fade down duration={2000} className={styles.wrapper}>
             <nav className={styles.navigation}>
               <span>
-                <Link to="/about" activeClassName="active">
+                <Link to="/richard-and-natasha" activeClassName="active">
                   About
                 </Link>
                 <Link to="/rsvp" activeClassName="active">
                   RSVP
-                </Link>
-                <Link to="/contact" activeClassName="active">
-                  Contact
-                </Link>
-                <Link to="/fa-qs" activeClassName="active">
-                  FAQs
                 </Link>
                 <Link to="/the-big-day" activeClassName="active">
                   Schedule
                 </Link>
                 <Link to="/honeymoon-sal-cape-verde" activeClassName="active">
                   Registry
+                </Link>
+                <Link to="/fa-qs" activeClassName="active">
+                  FAQs
+                </Link>
+                <Link to="/contact" activeClassName="active">
+                  Contact
                 </Link>
               </span>
             </nav>
@@ -88,7 +88,7 @@ export default class Navigation extends Component {
                 <h1>{config.siteTitle}</h1>
               </Link>
               <Link
-                to="/about"
+                to="/richard-and-natasha"
                 activeClassName="active"
                 onClick={() => this.closeMenu()}
               >
@@ -98,20 +98,20 @@ export default class Navigation extends Component {
                 RSVP
               </Link>
               <Link
-                to="/contact"
+                to="/the-big-day"
                 activeClassName="active"
                 onClick={() => this.closeMenu()}
               >
-                Contact
-              </Link>
-              <Link to="/fa-qs" activeClassName="active" onClick={() => this.closeMenu()}>
-                FAQs
-              </Link>
-              <Link to="/the-big-day" activeClassName="active" onClick={() => this.closeMenu()}>
                 Schedule
               </Link>
               <Link to="/honeymoon-sal-cape-verde" activeClassName="active" onClick={() => this.closeMenu()}>
                 Registry
+              </Link>
+              <Link to="/fa-qs" activeClassName="active" onClick={() => this.closeMenu()}>
+                FAQs
+              </Link>
+              <Link to="/contact" activeClassName="active" onClick={() => this.closeMenu()}>
+                Contact
               </Link>
               <div className={styles.mobileNavSocialMedia}>
                 <a

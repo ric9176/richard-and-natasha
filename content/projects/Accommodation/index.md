@@ -8,7 +8,7 @@ position: 5
 ---
 # Pestana Sintra Golf Resort
 
-The bride, groom, family and wedding party will all be staying at the [Pestana Sintra Golf Resort](https://www.pestana.com/es/hotel/pestana-sintra?gclid=EAIaIQobChMIi4CRmt7Q2QIVCvEbCh0Y0gLNEAAYASAAEgLeHvD_BwE&gclsrc=aw.ds). This is a large hotel with plenty of rooms, an indoor and outdoor swimming pool, sauna and spa rooms, as well as restaurant and a golf course. To get the best price available, take a look on the usual travel websites like TripAdvisor, Expedia, Booking.com, and others.
+The bride, groom, family and wedding party will all be staying at the [Pestana Sintra Golf Resort](https://www.pestana.com/es/hotel/pestana-sintra?gclid=EAIaIQobChMIi4CRmt7Q2QIVCvEbCh0Y0gLNEAAYASAAEgLeHvD_BwE&gclsrc=aw.ds). This is a large hotel with plenty of rooms, an indoor and outdoor swimming pool, sauna and spa rooms, as well as restaurant and a golf course. To get the best price available, take a look on the usual travel websites like TripAdvisor, Expedia, Booking.com, and others. 
 
 ## Word to the wise
 

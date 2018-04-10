@@ -75,7 +75,7 @@ Open bar.
 See our [accommodations page](/accommodations).
 
 ####How do we get to the wedding venue?
-We will arrange a shuttle to take people staying at the Pestana Sintra Golf Resort to the Palacio at 16:25. People staying in other hotels or renting cars, there is plenty of parking and you can take an uber or taxi to the Palacio without a problem. Please be sure to leave at least 30 mins to get the venue even if you are staying in Sintra, as there can often be delays on the mountain.
+We will arrange a shuttle to take people staying at the Pestana Sintra Golf Resort to the Palacio at 16:25. People staying in other hotels or renting cars, there is plenty of parking and you can take an uber or taxi to the Palacio without a problem. Please be sure to leave at least 30 mins to get the venue even if you are staying in Sintra, as there can often be delays on the mountain. 
 
 ####How do we get back to our accommodations after the wedding?
 While we will be arranging a shuttle back to the recommended hotel for stragglers at 2 am, if you’d like to leave before then, please either drive, use Uber or call a taxi--record a taxi number in your phone; you can get the number from the hotel you’re staying at.

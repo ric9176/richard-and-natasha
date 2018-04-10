@@ -14,6 +14,6 @@ Now the two live between Cascais and London working remotely as a web developer 
 
 As a couple, they love to travel, debate politics, have long conversations with fascinating people, eat good food, drink great wine, read, play tennis, and (at the risk of sounding sappy) they love each other, most of all.
 
-After 4 years together, Rich proposed to Natasha in Chicago, her birth city, over a bottle of champagne at the top of the John Hancock building overlooking the city's iconic views. Which brings us to the wedding!
+After 4 years together, Rich proposed to Natasha in Chicago, her birth city, over a bottle of champagne at the top of the John Hancock building overlooking the city's iconic views. Which brings us to the wedding! 
 
 You have all played an important part in their stories and they're so excited to share the next step in their journey with you all on October 20, 2018 in their new home country.

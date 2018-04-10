@@ -1,7 +1,7 @@
 ---
 title: "The Big Day"
 client: "The Big Day"
-subtitle: "What to expect on the 20th of October 2018"
+subtitle: "What to expect at the wedding"
 cover: "./palacio.jpg"
 position: 3
 ---
@@ -9,11 +9,17 @@ position: 3
 
 The Pena Palace (Portuguese: Palácio da Pena) is a Romanticist castle in São Pedro de Penaferrim, in the municipality of Sintra, Portugal. The castle stands on the top of a hill in the Sintra Mountains above the town of Sintra, and on a clear day it can be easily seen from Lisbon and much of its metropolitan area. It is a national monument and constitutes one of the major expressions of 19th-century Romanticism in the world. The palace is a UNESCO World Heritage Site and one of the Seven Wonders of Portugal. ([Wikipedia](https://en.wikipedia.org/wiki/Pena_Palace))
 
-We feel so fortunate to be able to celebrate our wedding at such a magical place and we hope that you will all fall in love with it the way we did the first time we set foot there together not long after we met.
+We feel so fortunate to be able to celebrate our wedding at such a magical place and we hope that you will all fall in love with it the way we did the first time we set foot there together not long after we met. 
 
 # Schedule
 
-Here's what you can expect on the day of the wedding.
+Here's what you can expect on the wedding weekend.
+
+##Friday, October 19
+
+**20:30** Those of you staying at the Pestana Sintra Golf can drop by the hotel bar for a drink with us.
+
+##Saturday, October 20
 
 **16:25** Those of you staying at the Pestana Sintra Golf Resort will take the shuttle from the hotel entrance at promptly 4:25 pm. Please be on time or risk being left behind.
 
@@ -39,5 +45,7 @@ The groomsmen are Best Man Dominic Wells, Jonathan Moss, Christopher Moss, Will 
 **24:00** As the night winds down, small snacks will be served to keep the party going for another hour or two.
 
 **02:00** The shuttle will head back to the hotel with the final stragglers. Those of you who would like to leave sooner, please be sure to use uber or ask your hotel for a taxi number you can call during the night.
+
+##Sunday, October 21
 
 **09:00** On the following morning, we hope to see those of you who stay at the Pestana Sintra Golf Resort in the breakfast area, though we can't make any promises we'll make it!
