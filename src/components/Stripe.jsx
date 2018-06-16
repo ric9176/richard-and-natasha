@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Divider, Button, Confirm } from 'semantic-ui-react'
+import { Form, Input, Divider, Button, Confirm, Label } from 'semantic-ui-react'
 import { firebase, db } from '../../firebase'
 // const jsdom = require("jsdom");
 // const { JSDOM } = jsdom;
@@ -54,7 +54,17 @@ const createOptions = (fontSize) => {
 
 class _CardForm extends React.Component {
 
+	constructor() {
+	    super()
+	    this.state = {
+	      amount: undefined,
+	    }
+	  }
 
+	handleChange = e => {
+		const amount = parseInt(e.target.value) ? parseInt(e.target.value) : 0
+		this.setState({amount})
+	}
 
 	processPayment = (token, amount) => {
 		const payment = { token, amount }
@@ -64,6 +74,7 @@ class _CardForm extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault();
     const payload = this.props.stripe.createToken().then(payload => {
+			payload.amount = this.state.amount
 			console.log(payload)
 			firebase.auth.onAuthStateChanged(authUser => {
 				db.donate(authUser.uid, payload)
@@ -75,6 +86,16 @@ class _CardForm extends React.Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
+				<div>
+				<Label basic>£</Label>
+					<Input
+						value={this.state.amount}
+						onChange={this.handleChange}
+						placeholder="Amount in pounds GDP"
+					>
+     			</Input>
+				<Label>.00</Label>
+    		</div>
         <label style={{width: "50%"}}>
           Card details
           <CardElement
@@ -86,7 +107,7 @@ class _CardForm extends React.Component {
             {...createOptions(this.props.fontSize)}
           />
         </label>
-        <Button>Pay</Button>
+        <Button primary>Pay</Button>
       </Form>
     );
   }
@@ -95,6 +116,7 @@ class _CardForm extends React.Component {
 const CardForm = injectStripe(_CardForm);
 
 class _SplitForm extends React.Component {
+
   handleSubmit = ev => {
     ev.preventDefault();
     this.props.stripe.createToken().then(payload => console.log(payload));
@@ -103,6 +125,7 @@ class _SplitForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+			<p>something</p>
         <label>
           Card number
           <CardNumberElement
@@ -143,7 +166,7 @@ class _SplitForm extends React.Component {
             {...createOptions(this.props.fontSize)}
           />
         </label>
-        <button>Pay</button>
+        <button>Pays</button>
       </form>
     );
   }
@@ -173,14 +196,16 @@ class Checkout extends React.Component {
   }
 
   render() {
-    const {elementFontSize} = this.state;
+    // const {elementFontSize} = this.state;
     return (
       <div className="Checkout">
-        <h2>All-in-one Card Form</h2>
+				<h2>Donate via bank transfer or VENMO</h2>
+				<p>If you'd prefer to transfer to our UK or USA bank account directly please contact us by email for the details</p>
+        <h2>Donate via debit/credit card</h2>
         <Elements>
-          <CardForm fontSize={elementFontSize} />
+          <CardForm fontSize="1" />
         </Elements>
-        <h2>Card Split-field Form</h2>
+        {/* <h2>Card Split-field Form</h2> */}
         {/* <Elements>
           <SplitForm fontSize={elementFontSize} />
         </Elements> */}
@@ -191,8 +216,6 @@ class Checkout extends React.Component {
 
 const Stipe = () => (
   <div>
-    <p>asd</p>
-
     <StripeProvider style={{width: "100%"}} apiKey="pk_test_poAwSmVO1TRKjjzN9wKTDc8V">
       <Checkout />
     </StripeProvider>

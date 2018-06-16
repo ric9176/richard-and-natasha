@@ -9,14 +9,19 @@ const stripe = require('stripe')(functions.config().stripe.testkey)
 
 
 exports.stripeCharge = functions.database
-                                .ref('donations/{userId}/{paymentId}')
-                                .onWrite(event => {
+                                .ref('/donations/{userId}/{paymentId}/payload')
+                                .onWrite((snap, context) => {
 
+  console.log('EVENT', snap.after.val())
+  const payment = snap.after.val()
+  const userId = context.params.userId;
+  const paymentId = context.params.paymentId;
 
-  const payment = event.data.val();
-  const userId = event.params.userId;
-  const paymentId = event.params.paymentId;
-
+  // return admin.database()
+  //      .ref(`/donations/{userId}/{paymentId}/charge`)
+  //      .set({event: amount})
+  //
+  // console.log('after write')
 
   // checks if payment exists or if it has already been charged
   if (!payment || payment.charge) return;
@@ -32,7 +37,7 @@ exports.stripeCharge = functions.database
                  const amount = payment.amount;
                  const idempotency_key = paymentId;  // prevent duplicate charges
                  const source = payment.token.id;
-                 const currency = 'usd';
+                 const currency = 'gbp';
                  const charge = {amount, currency, source};
 
 
@@ -45,7 +50,7 @@ exports.stripeCharge = functions.database
                         .ref(`/payments/${userId}/${paymentId}/charge`)
                         .set(charge)
                   })
-
+  //
 
 });
 

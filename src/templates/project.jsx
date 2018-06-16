@@ -64,10 +64,10 @@ const Project = (props) => {
             className={styles.content}
             dangerouslySetInnerHTML={{ __html: postNode.html }}
           />
-          {/* {
-            project.title === "Honeymoon - Sal, Cape Verde" &&
+          {
+            project.client === "Honeymoon" &&
             <Stripe />
-          } */}
+          }
         </Container>
         <Footer />
         </div>
@@ -87,6 +87,7 @@ query ProjectPostBySlug($slug: String!) {
     frontmatter {
       title
       subtitle
+      client
     }
   }
 }
