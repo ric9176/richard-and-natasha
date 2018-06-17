@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Divider, Button, Confirm, Label } from 'semantic-ui-react'
+import { Form, Input, Divider, Button, Confirm, Label, Message } from 'semantic-ui-react'
 import { firebase, db } from '../../firebase'
 // const jsdom = require("jsdom");
 // const { JSDOM } = jsdom;
@@ -58,6 +58,7 @@ class _CardForm extends React.Component {
 	    super()
 	    this.state = {
 	      amount: undefined,
+				errorMessage: null
 	    }
 	  }
 
@@ -74,10 +75,14 @@ class _CardForm extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault();
     const payload = this.props.stripe.createToken().then(payload => {
-			payload.amount = this.state.amount
-			console.log(payload)
+			payload.amount = parseInt(this.state.amount + "00")
+			console.log('payload', payload)
+			if (payload.error.message) {
+				this.setState({ errorMessage: payload.error.message})
+			}
 			firebase.auth.onAuthStateChanged(authUser => {
-				db.donate(authUser.uid, payload)
+				const uid = authUser && authUser.uid ? authUser.uid : 'unknown'
+				db.donate(uid, payload)
 				console.log('saved!')
 			})
 		})
@@ -85,6 +90,7 @@ class _CardForm extends React.Component {
 
   render() {
     return (
+			<div>
       <Form onSubmit={this.handleSubmit}>
 				<div>
 				<Label basic>£</Label>
@@ -109,7 +115,12 @@ class _CardForm extends React.Component {
         </label>
         <Button primary>Pay</Button>
       </Form>
-    );
+   			{
+					this.state.errorMessage &&
+					<Message floating>{this.state.errorMessage}</Message>
+				}
+				</div>
+    )
   }
 }
 
