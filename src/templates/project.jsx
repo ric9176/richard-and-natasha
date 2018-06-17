@@ -11,73 +11,90 @@ import styles from './project.module.scss';
 import RSVP from '../components/RSVP'
 import Stripe from '../components/Stripe'
 
-const Project = (props) => {
-  const { slug } = props.pathContext;
-  let content
-  if (!props.data) {
-    content = <p>...loading</p>
-  } else {
-    const postNode = props.data.markdownRemark;
-    const project = postNode.frontmatter;
-    const date = format(project.date, config.dateFormat);
-    // const imageURL = project.cover.childImageSharp.resize.src;
-    if (!project.id) {
-      project.id = slug;
-    }
-    content = (
-      <div className="container project-container">
-        <Helmet title={`${project.title} | ${config.siteTitle}`} />
-        <SEO postPath={slug} postNode={postNode} postSEO />
-        <div className={styles.headerWrapper}>
-          <Palette>
-            {palette => (
-              <section
-                className={styles.header}
-                style={{ backgroundColor: palette.vibrant }}
-              >
-                <div className={styles.title}>
-                  <Fade down duration={1250} tag="h1">
-                    {project.title}
-                  </Fade>
-                </div>
-                <div className={styles.information}>
-                  <div className={styles.infoBlock}>
-                    <Fade
-                      up
-                      duration={1250}
-                      delay={500}
-                      className={styles.bottom}
-                    >
-                      {project.subtitle}
+class Project extends React.Component {
+  constructor(){
+    super()
+    this.state = { stripe: null}
+  }
+
+  componentDidMount() {
+    // Create Stripe instance in componentDidMount
+    // (componentDidMount only fires in browser/DOM environment)
+    this.setState({stripe: window.Stripe('pk_live_UdQGuT6Qe69RFTpuSgCurP5K')})
+  }
+
+  render() {
+    const { slug } = props.pathContext;
+    let content
+    if (!props.data) {
+      content = <p>...loading</p>
+    } else {
+      const postNode = props.data.markdownRemark;
+      const project = postNode.frontmatter;
+      const date = format(project.date, config.dateFormat);
+      // const imageURL = project.cover.childImageSharp.resize.src;
+      if (!project.id) {
+        project.id = slug;
+      }
+      content = (
+        <div className="container project-container">
+          <Helmet title={`${project.title} | ${config.siteTitle}`} />
+          <SEO postPath={slug} postNode={postNode} postSEO />
+          <div className={styles.headerWrapper}>
+            <Palette>
+              {palette => (
+                <section
+                  className={styles.header}
+                  style={{ backgroundColor: palette.vibrant }}
+                >
+                  <div className={styles.title}>
+                    <Fade down duration={1250} tag="h1">
+                      {project.title}
                     </Fade>
                   </div>
-                </div>
-              </section>
-  						)}
-          </Palette>
-        </div>
-        <Container>
-        {project.title === 'RSVP' &&
-          <RSVP />
-        }
-          <div
-            className={styles.content}
-            dangerouslySetInnerHTML={{ __html: postNode.html }}
-          />
-          {
-            project.client === "Honeymoon" &&
-            <Stripe />
+                  <div className={styles.information}>
+                    <div className={styles.infoBlock}>
+                      <Fade
+                        up
+                        duration={1250}
+                        delay={500}
+                        className={styles.bottom}
+                      >
+                        {project.subtitle}
+                      </Fade>
+                    </div>
+                  </div>
+                </section>
+    						)}
+            </Palette>
+          </div>
+          <Container>
+          {project.title === 'RSVP' &&
+            <RSVP />
           }
-        </Container>
-        <Footer />
-        </div>
+            <div
+              className={styles.content}
+              dangerouslySetInnerHTML={{ __html: postNode.html }}
+            />
+            {
+              project.client === "Honeymoon" &&
+              <Stripe stripe={this.state.stripe} />
+            }
+          </Container>
+          <Footer />
+          </div>
+      )
+    }
+    return (
+      <div>
+        {content}
+      </div>
     )
   }
 
-  return content
-};
+}
 
-export default Project;
+export default Project
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`

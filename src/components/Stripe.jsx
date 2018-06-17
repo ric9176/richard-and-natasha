@@ -214,12 +214,12 @@ class Checkout extends React.Component {
   }
 }
 
-const Stipe = () => (
+const Stripe = () => (
   <div>
-    <StripeProvider style={{width: "100%"}} apiKey="pk_live_UdQGuT6Qe69RFTpuSgCurP5K">
+    <StripeProvider style={{width: "100%"}} stripe={props.stripe}>
       <Checkout />
     </StripeProvider>
   </div>
 )
 
-export default Stipe
+export default Stripe
