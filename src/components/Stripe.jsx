@@ -214,7 +214,7 @@ class Checkout extends React.Component {
   }
 }
 
-const Stripe = () => (
+const Stripe = (props) => (
   <div>
     <StripeProvider style={{width: "100%"}} stripe={props.stripe}>
       <Checkout />

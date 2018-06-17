@@ -24,12 +24,12 @@ class Project extends React.Component {
   }
 
   render() {
-    const { slug } = props.pathContext;
+    const { slug } = this.props.pathContext;
     let content
-    if (!props.data) {
+    if (!this.props.data) {
       content = <p>...loading</p>
     } else {
-      const postNode = props.data.markdownRemark;
+      const postNode = this.props.data.markdownRemark;
       const project = postNode.frontmatter;
       const date = format(project.date, config.dateFormat);
       // const imageURL = project.cover.childImageSharp.resize.src;
