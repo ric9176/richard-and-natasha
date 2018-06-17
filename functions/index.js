@@ -4,7 +4,7 @@ const admin = require('firebase-admin')
 
 admin.initializeApp(functions.config().firebase);
 
-const stripe = require('stripe')(functions.config().stripe.testkey)
+const stripe = require('stripe')(functions.config().stripe.livekey)
 
 
 

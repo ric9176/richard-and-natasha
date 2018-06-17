@@ -216,7 +216,7 @@ class Checkout extends React.Component {
 
 const Stipe = () => (
   <div>
-    <StripeProvider style={{width: "100%"}} apiKey="pk_test_poAwSmVO1TRKjjzN9wKTDc8V">
+    <StripeProvider style={{width: "100%"}} apiKey="pk_live_UdQGuT6Qe69RFTpuSgCurP5K">
       <Checkout />
     </StripeProvider>
   </div>
