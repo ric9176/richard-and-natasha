@@ -77,11 +77,13 @@ class _CardForm extends React.Component {
     const payload = this.props.stripe.createToken().then(payload => {
 			payload.amount = parseInt(this.state.amount + "00")
 			console.log('payload', payload)
-			if (payload.error.message) {
+			if (payload.error) {
 				this.setState({ errorMessage: payload.error.message})
 			} else {
 				firebase.auth.onAuthStateChanged(authUser => {
 					db.donate(authUser.uid, payload)
+					console.log("authUser", authUser.uid)
+					console.log("payload", payload)
 					console.log('saved!')
 				})
 			}
