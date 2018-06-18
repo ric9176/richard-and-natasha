@@ -81,8 +81,7 @@ class _CardForm extends React.Component {
 				this.setState({ errorMessage: payload.error.message})
 			}
 			firebase.auth.onAuthStateChanged(authUser => {
-				const uid = authUser && authUser.uid ? authUser.uid : 'unknown'
-				db.donate(uid, payload)
+				db.donate(authUser.uid, payload)
 				console.log('saved!')
 			})
 		})
