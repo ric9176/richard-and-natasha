@@ -59,9 +59,9 @@ class _CardForm extends React.Component {
 	    this.state = {
 	      amount: undefined,
 				errorMessage: null,
-				message: ""
+				message: "",
+				complete: false
 	    }
-			console.log(this.state)
 	  }
 
 	handleChange = e => {
@@ -87,7 +87,8 @@ class _CardForm extends React.Component {
 					db.donate(authUser.uid, payload)
 						this.setState({
 							message: "Thanks for donating!",
-							amount: undefined
+							amount: undefined,
+							complete: true
 						})
 				})
 			}
@@ -119,7 +120,7 @@ class _CardForm extends React.Component {
             {...createOptions(this.props.fontSize)}
           />
         </label>
-        <Button primary>Pay</Button>
+        <Button disabled={this.state.complete} primary>Pay</Button>
       </Form>
    			{
 					this.state.errorMessage &&
