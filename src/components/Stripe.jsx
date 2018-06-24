@@ -58,8 +58,10 @@ class _CardForm extends React.Component {
 	    super()
 	    this.state = {
 	      amount: undefined,
-				errorMessage: null
+				errorMessage: null,
+				message: ""
 	    }
+			console.log(this.state)
 	  }
 
 	handleChange = e => {
@@ -72,6 +74,7 @@ class _CardForm extends React.Component {
 		db.donate(user, payment)
 	}
 
+
   handleSubmit = ev => {
     ev.preventDefault();
     const payload = this.props.stripe.createToken().then(payload => {
@@ -82,9 +85,10 @@ class _CardForm extends React.Component {
 			} else {
 				firebase.auth.onAuthStateChanged(authUser => {
 					db.donate(authUser.uid, payload)
-					console.log("authUser", authUser.uid)
-					console.log("payload", payload)
-					console.log('saved!')
+						this.setState({
+							message: "Thanks for donating!",
+							amount: undefined
+						})
 				})
 			}
 		})
@@ -120,6 +124,10 @@ class _CardForm extends React.Component {
    			{
 					this.state.errorMessage &&
 					<Message floating>{this.state.errorMessage}</Message>
+				}
+				{
+					this.state.message &&
+					<Message floating>{this.state.message}</Message>
 				}
 				</div>
     )

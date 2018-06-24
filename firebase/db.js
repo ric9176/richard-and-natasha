@@ -33,3 +33,6 @@ export const donate = (id, payload) => {
     payload
   })
 }
+
+// export const onceGetUsers = (id) =>
+//   db.ref(`payments/${id}`).once('value');
