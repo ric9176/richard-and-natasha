@@ -2,6 +2,9 @@ import React from 'react'
 import { Form, Input, Divider, Button, Confirm, Label, Message } from 'semantic-ui-react'
 import { firebase, db } from '../../firebase'
 import SignInForm from '../signup/SignInForm'
+import SignUpForm, { updateByPropertyName } from '../signup'
+import Link from 'gatsby-link';
+
 // const jsdom = require("jsdom");
 // const { JSDOM } = jsdom;
 
@@ -202,7 +205,8 @@ class Checkout extends React.Component {
   constructor() {
     super();
 		this.state = {
-			loggedIn: undefined
+			loggedIn: undefined,
+			mustSignUp: false
 		}
   }
 	componentDidMount() {
@@ -213,6 +217,10 @@ class Checkout extends React.Component {
 				this.setState({ loggedIn: true})
 			}
 		})
+	}
+
+	handleSignUp = () => {
+		this.setState({ mustSignUp: true })
 	}
 
   render() {
@@ -230,7 +238,13 @@ class Checkout extends React.Component {
 						</Elements>
 					</div>
 					:
-					<SignInForm />
+					<div>
+						<SignInForm />
+						<p>Don't have a login? Please <button onClick={this.handleSignUp}>click here</button> to sign up</p>
+					</div>
+				 }
+				 {this.state.mustSignUp &&
+					 <SignUpForm />
 				 }
    		</div>
     )

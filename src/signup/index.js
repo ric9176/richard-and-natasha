@@ -3,7 +3,7 @@ import { Form, Input, Divider, Button } from 'semantic-ui-react'
 
 import { auth, db } from '../../firebase';
 
-const updateByPropertyName = (propertyName, value) => () => ({
+export const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
 });
 
