@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Input, Divider, Button, Confirm, Label, Message } from 'semantic-ui-react'
 import { firebase, db } from '../../firebase'
+import SignInForm from '../signup/SignInForm'
 // const jsdom = require("jsdom");
 // const { JSDOM } = jsdom;
 
@@ -83,8 +84,10 @@ class _CardForm extends React.Component {
 			if (payload.error) {
 				this.setState({ errorMessage: payload.error.message})
 			} else {
-				firebase.auth.onAuthStateChanged(authUser => {
-					db.donate(authUser.uid, payload)
+				firebase.auth.onAuthStateChanged((authUser) => {
+					const uid = authUser && authUser.uid || 'anon'
+					console.log('uid', uid)
+					db.donate(uid, payload)
 						this.setState({
 							message: "Thanks for donating!",
 							amount: undefined,
@@ -198,41 +201,39 @@ const SplitForm = injectStripe(_SplitForm);
 class Checkout extends React.Component {
   constructor() {
     super();
-
-		// const dom = new JSDOM(`<!DOCTYPE html>`);
-    //
-    // this.state = {
-    //   elementFontSize: dom.window.innerWidth < 450 ? '14px' : '18px',
-    // };
-    //
-    // dom.window.addEventListener('resize', () => {
-    //   if (dom.window.innerWidth < 450 && this.state.elementFontSize !== '14px') {
-    //     this.setState({elementFontSize: '14px'});
-    //   } else if (
-    //     dom.window.innerWidth >= 450 &&
-    //     this.state.elementFontSize !== '18px'
-    //   ) {
-    //     this.setState({elementFontSize: '18px'});
-    //   }
-    // });
+		this.state = {
+			loggedIn: undefined
+		}
   }
+	componentDidMount() {
+		firebase.auth.onAuthStateChanged((authUser) => {
+			if (!authUser) {
+				this.setState({ loggedIn: false})
+			} else {
+				this.setState({ loggedIn: true})
+			}
+		})
+	}
 
   render() {
+		console.log("state", this.state)
     // const {elementFontSize} = this.state;
     return (
-      <div className="Checkout">
-				<h2>Donate via bank transfer or VENMO</h2>
-				<p>If you'd prefer to transfer to our UK or USA bank account directly please contact us by email for the details</p>
-        <h2>Donate via debit/credit card</h2>
-        <Elements>
-          <CardForm fontSize="1" />
-        </Elements>
-        {/* <h2>Card Split-field Form</h2> */}
-        {/* <Elements>
-          <SplitForm fontSize={elementFontSize} />
-        </Elements> */}
-      </div>
-    );
+			<div>
+				{this.state.loggedIn ?
+					<div className="Checkout">
+						<h2>Donate via bank transfer or VENMO</h2>
+						<p>If you'd prefer to transfer to our UK or USA bank account directly please contact us by email for the details</p>
+						<h2>Donate via debit/credit card</h2>
+						<Elements>
+							<CardForm fontSize="1" />
+						</Elements>
+					</div>
+					:
+					<SignInForm />
+				 }
+   		</div>
+    )
   }
 }
 
