@@ -243,7 +243,7 @@ class Checkout extends React.Component {
 						<p>Don't have a login? Please <button onClick={this.handleSignUp}>click here</button> to sign up</p>
 					</div>
 				 }
-				 {this.state.mustSignUp &&
+				 {this.state.mustSignUp && !this.state.loggedIn &&
 					 <SignUpForm />
 				 }
    		</div>
