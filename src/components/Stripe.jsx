@@ -83,13 +83,11 @@ class _CardForm extends React.Component {
     ev.preventDefault();
     const payload = this.props.stripe.createToken().then(payload => {
 			payload.amount = parseInt(this.state.amount + "00")
-			console.log('payload', payload)
 			if (payload.error) {
 				this.setState({ errorMessage: payload.error.message})
 			} else {
 				firebase.auth.onAuthStateChanged((authUser) => {
 					const uid = authUser && authUser.uid || 'anon'
-					console.log('uid', uid)
 					db.donate(uid, payload)
 						this.setState({
 							message: "Thanks for donating!",
@@ -224,8 +222,6 @@ class Checkout extends React.Component {
 	}
 
   render() {
-		console.log("state", this.state)
-    // const {elementFontSize} = this.state;
     return (
 			<div>
 				{this.state.loggedIn ?
